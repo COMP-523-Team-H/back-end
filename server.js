@@ -1,21 +1,31 @@
 const express = require("express");
-const Routes = express.Router();
+
+const mongoose = require('mongoose');
 const app = express();
+const path = require('path');
+const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 8080;
 
-Routes.post('/', (req, res)=>{
-    //put request into database
-})
+const Router = require('./Router');
 
-Routes.get('/', (req, res)=>{
-    //return the webpage
-})
 
-Routes.get('/:id', (req, res)=>{
-    //return the list of id from database
-})
 
-app.use('/', Routes);
+
+mongoose.connect('mongodb://127.0.0.1:27017/article-analyzer', {useNewUrlParser: true});
+
+const connection = mongoose.connection;
+
+
+connection.once('open', ()=>{
+    console.log("mongoDB database connection established successfully");
+});
+
+
+
+app.use(bodyParser.json());
+app.use('/', Router);
+
+app.use(express.static(path.join(__dirname, 'views/build')));
 
 app.listen(PORT, ()=>console.log("app running on port " + PORT));
 
