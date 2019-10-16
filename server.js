@@ -5,6 +5,7 @@ const app = express();
 const path = require('path');
 const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 8080;
+const env = process.env.NODE_ENV || 'dev';
 
 const Router = require('./Router');
 
@@ -25,7 +26,11 @@ connection.once('open', ()=>{
 app.use(bodyParser.json());
 app.use('/', Router);
 
-app.use(express.static(path.join(__dirname, 'views/build')));
+if(env == 'production'){
+    app.use(express.static(path.join(__dirname, 'views/build')));
+}
+
+
 
 app.listen(PORT, ()=>console.log("app running on port " + PORT));
 
