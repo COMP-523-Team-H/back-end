@@ -7,13 +7,7 @@ import './App.css';
 
 class App extends Component {
   state = {
-    currentView: <Home />
-  }
-
-  setView(view) {
-    this.setState({
-      currentView: view
-    })
+    currentView: <About />
   }
 
   render() {
