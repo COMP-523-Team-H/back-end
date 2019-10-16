@@ -30,7 +30,7 @@ if(env == 'production'){
     app.use(express.static(path.join(__dirname, 'views/build')));
 }
 
-app.use(express.static(path.join(__dirname, 'views/build')));
+// app.use(express.static(path.join(__dirname, 'views/build')));
 
 
 app.listen(PORT, ()=>console.log("app running on port " + PORT));
