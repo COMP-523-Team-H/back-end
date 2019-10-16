@@ -13,7 +13,12 @@ const mongoHost = "10.1.25.164";
 const mongoPort = "27017";
 const mongoDatabase = "article-analyzer";
 
+
+const mongoUser = process.env["MONGODB_USER"];
+const mongoPassword = process.env["MONGODB_PASSWORD"];
+
 var mongoURL = 'mongodb://';
+mongoURL += mongoUser + ':' + mongoPassword + '@';
 mongoURL += mongoHost + ':' +  mongoPort + '/' + mongoDatabase;
 
 mongoose.connect(mongoURL, {useNewUrlParser: true});
