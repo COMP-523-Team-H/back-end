@@ -9,10 +9,14 @@ const env = process.env.NODE_ENV || 'dev';
 
 const Router = require('./Router');
 
+const mongoHost = "10.1.25.164";
+const mongoPort = "27017";
+const mongoDatabase = "article-analyzer";
 
+const mongoURL = 'mongodb://';
+mongoURL += mongoHost + ':' +  mongoPort + '/' + mongoDatabase;
 
-
-mongoose.connect('mongodb://127.0.0.1:27017/article-analyzer', {useNewUrlParser: true});
+mongoose.connect(mongoURL, {useNewUrlParser: true});
 
 const connection = mongoose.connection;
 
