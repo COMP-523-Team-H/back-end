@@ -23,6 +23,7 @@ mongoURL += mongoHost + ':' +  mongoPort + '/' + mongoDatabase;
 
 console.log(mongoURL);
 console.log(mongoUser);
+console.log(mongoPassword);
 mongoose.connect(mongoURL, {useNewUrlParser: true});
 
 const connection = mongoose.connection;
