@@ -12,7 +12,7 @@ const Router = require('./Router');
 
 const mongoHost = "10.1.25.164";
 const mongoPort = "27017";
-const mongoDatabase = "article-analyzer";
+const mongoDatabase = "sampledb";
 
 const mongoUser = process.env["MONGODB_USER"];
 const mongoPassword = process.env["MONGODB_PASSWORD"];
