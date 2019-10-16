@@ -1,6 +1,10 @@
 const Router = require('express').Router();
 let URL = require('./models/URL');
 
+Router.get('/', (req, res)=>{
+    res.send('server is running');
+})
+
 Router.post('/', (req, res)=>{
     console.log(req.body);
     const url = new URL(req.body);
