@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon server.js",
+    "start": "node server.js",
+    "production": "NODE_ENV=production node server.js"
   },
   "repository": {
     "type": "git",
@@ -15,6 +17,7 @@
   "bugs": {
     "url": "https://github.com/COMP-523-Team-H/article-analyzer-frontonly/issues"
   },
+  
   "homepage": "https://github.com/COMP-523-Team-H/article-analyzer-frontonly#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
