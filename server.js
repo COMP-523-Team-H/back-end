@@ -13,7 +13,7 @@ const mongoHost = "10.1.25.164";
 const mongoPort = "27017";
 const mongoDatabase = "article-analyzer";
 
-const mongoURL = 'mongodb://';
+var mongoURL = 'mongodb://';
 mongoURL += mongoHost + ':' +  mongoPort + '/' + mongoDatabase;
 
 mongoose.connect(mongoURL, {useNewUrlParser: true});
@@ -31,6 +31,7 @@ app.use(bodyParser.json());
 app.use('/', Router);
 
 if(env == 'production'){
+    console.log(env);
     app.use(express.static(path.join(__dirname, 'views/build')));
 }
 
