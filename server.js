@@ -26,7 +26,7 @@ console.log(mongoURL);
 console.log(mongoUser);
 console.log(mongoPassword);
 
-//for god's sake change this before pushing your changes
+//for god's sake change this before pushing your changes to master
 mongoose.connect('mongodb://127.0.0.1:27017/article-analyzer', {useNewUrlParser: true});
 //mongoose.connect(mongoURL);
 
