@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require('cors');
 
 const mongoose = require('mongoose');
 const app = express();
@@ -24,7 +25,10 @@ mongoURL += mongoHost + ':' +  mongoPort + '/' + mongoDatabase;
 console.log(mongoURL);
 console.log(mongoUser);
 console.log(mongoPassword);
-mongoose.connect(mongoURL);
+
+//for god's sake change this before pushing your changes
+mongoose.connect('mongodb://127.0.0.1:27017/article-analyzer', {useNewUrlParser: true});
+//mongoose.connect(mongoURL);
 
 const connection = mongoose.connection;
 
@@ -36,6 +40,7 @@ connection.once('open', ()=>{
 
 
 app.use(bodyParser.json());
+app.use(cors());
 app.use('/', Router);
 
 if(env == 'production'){

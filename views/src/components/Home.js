@@ -20,13 +20,12 @@ class Home extends Component {
   handleSubmit(e) {
     fetch('http://localhost:8080/', {
       method: 'POST',
-      mode: 'no-cors',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        url: [this.state.value]
+        url: this.state.value
       })
     }).then(
       function(response) {
