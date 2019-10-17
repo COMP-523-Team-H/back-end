@@ -1,25 +1,25 @@
 import React, { Component } from "react"
-import Container from "react-bootstrap/Container"
-import Button from "react-bootstrap/Button"
+import URLList from "./URLList"
+
 
 class About extends Component {
   state = {
     urls: []
   }
 
-
+  componentDidMount() {
+    fetch('http://localhost:8080/0').then((res) => res.json()).then((body) => {
+      console.log(body);
+      this.setState({urls: body});
+    });
+  }
 
   render() {
     return (
-      <Container>
+      <React.Fragment>
         <h3>This is a stand-in for actual GET functionality.</h3>
-        <Button
-              variant="primary"
-              onClick={(e) => this.fetchURLs()}
-            >
-              Big button that does the thing
-            </Button>
-      </Container>
+        <URLList urls={this.state.urls} />
+      </React.Fragment>
     )
   }
 }
