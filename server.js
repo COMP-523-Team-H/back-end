@@ -28,8 +28,6 @@ mongoURL += mongoHost + ':' +  mongoPort + '/' + mongoDatabase;
 console.log(mongoURL);
 console.log(mongoUser);
 console.log(mongoPassword);
-
-//mongoose.connect('mongodb://127.0.0.1:27017/article-analyzer', {useNewUrlParser: true});
 mongoose.connect(mongoURL);
 
 const connection = mongoose.connection;
