@@ -11,7 +11,7 @@ const env = process.env.NODE_ENV || 'dev';
 const Router = require('./Router');
 
 
-const mongoHost = process.env["MONGODB_URL"];
+const mongoHost = process.env["MONGODB_URL"] || "127.0.0.1";
 console.log(mongoHost);
 const mongoPort = "27017";
 const mongoDatabase = "sampledb";
