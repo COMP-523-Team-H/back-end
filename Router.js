@@ -1,7 +1,7 @@
 const Router = require('express').Router();
 let URL = require('./models/URL');
 
-Router.post('/', (req, res) => {
+Router.post('/request', (req, res) => {
     console.log(req.body);
     const url = new URL(req.body);
     url.save()
@@ -13,7 +13,7 @@ Router.post('/', (req, res) => {
         });
 });
 
-Router.get('/:id', (req, res) => {
+Router.get('/request/:id', (req, res) => {
     console.log('get called');
     URL.find((err, urls) => {
         res.json(urls);
