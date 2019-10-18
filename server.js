@@ -11,7 +11,8 @@ const env = process.env.NODE_ENV || 'dev';
 const Router = require('./Router');
 
 
-const mongoHost = "10.1.25.164";
+const mongoHost = process.env["MONGODB_URL"];
+console.log(mongoHost);
 const mongoPort = "27017";
 const mongoDatabase = "sampledb";
 
@@ -19,16 +20,17 @@ const mongoUser = process.env["MONGODB_USER"];
 const mongoPassword = process.env["MONGODB_PASSWORD"];
 
 var mongoURL = 'mongodb://';
-mongoURL += mongoUser + ':' + mongoPassword + '@';
+if (mongoHost !== "127.0.0.1") {
+    mongoURL += mongoUser + ':' + mongoPassword + '@';
+}
 mongoURL += mongoHost + ':' +  mongoPort + '/' + mongoDatabase;
 
 console.log(mongoURL);
 console.log(mongoUser);
 console.log(mongoPassword);
 
-//for god's sake change this before pushing your changes to master
-mongoose.connect('mongodb://127.0.0.1:27017/article-analyzer', {useNewUrlParser: true});
-//mongoose.connect(mongoURL);
+//mongoose.connect('mongodb://127.0.0.1:27017/article-analyzer', {useNewUrlParser: true});
+mongoose.connect(mongoURL);
 
 const connection = mongoose.connection;
 
