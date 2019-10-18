@@ -37,8 +37,6 @@ connection.once('open', ()=>{
     console.log("mongoDB database connection established successfully");
 });
 
-
-
 app.use(bodyParser.json());
 app.use(cors());
 app.use('/', Router);
