@@ -20,6 +20,7 @@
   "homepage": "https://github.com/COMP-523-Team-H/article-analyzer-frontonly#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "mongoose": "^5.7.5",
     "nodemon": "^1.19.3"

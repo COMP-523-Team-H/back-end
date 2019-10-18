@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require('cors');
 
 const mongoose = require('mongoose');
 const app = express();
@@ -10,7 +11,8 @@ const env = process.env.NODE_ENV || 'dev';
 const Router = require('./Router');
 
 
-const mongoHost = "10.1.25.164";
+const mongoHost = process.env["MONGODB_URL"] || "127.0.0.1";
+console.log(mongoHost);
 const mongoPort = "27017";
 const mongoDatabase = "sampledb";
 
@@ -18,7 +20,9 @@ const mongoUser = process.env["MONGODB_USER"];
 const mongoPassword = process.env["MONGODB_PASSWORD"];
 
 var mongoURL = 'mongodb://';
-mongoURL += mongoUser + ':' + mongoPassword + '@';
+if (mongoHost !== "127.0.0.1") {
+    mongoURL += mongoUser + ':' + mongoPassword + '@';
+}
 mongoURL += mongoHost + ':' +  mongoPort + '/' + mongoDatabase;
 
 console.log(mongoURL);
@@ -36,6 +40,7 @@ connection.once('open', ()=>{
 
 
 app.use(bodyParser.json());
+app.use(cors());
 app.use('/', Router);
 
 if(env == 'production'){
