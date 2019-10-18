@@ -8,7 +8,7 @@ class About extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:8080/0').then((res) => res.json()).then((body) => {
+    fetch('http://article-analyzer-hdwhite.cloudapps.unc.edu/').then((res) => res.json()).then((body) => {
       console.log(body);
       this.setState({urls: body});
     });
