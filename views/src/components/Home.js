@@ -18,7 +18,7 @@ class Home extends Component {
   }
 
   handleSubmit(e) {
-    fetch('http://article-analyzer-jiyu2.cloudapps.unc.edu/', {
+    fetch('http://localhost:8080/', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
