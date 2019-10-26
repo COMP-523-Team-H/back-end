@@ -13,7 +13,7 @@ Router.post('/', (req, res) => {
         });
 });
 
-Router.get('/api/:id', (req, res) => {
+Router.get('/api/workspace/:id', (req, res) => {
     console.log('get called');
     URL.find((err, urls) => {
         res.json(urls);

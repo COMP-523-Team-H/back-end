@@ -12,7 +12,6 @@ const Router = require('./Router');
 
 
 const mongoHost = process.env["MONGODB_SERVICE_HOST"] || "127.0.0.1";
-console.log(mongoHost);
 const mongoPort = "27017";
 const mongoDatabase = "sampledb";
 
@@ -24,10 +23,8 @@ if (mongoHost !== "127.0.0.1") {
     mongoURL += mongoUser + ':' + mongoPassword + '@';
 }
 mongoURL += mongoHost + ':' +  mongoPort + '/' + mongoDatabase;
-
 console.log(mongoURL);
-console.log(mongoUser);
-console.log(mongoPassword);
+
 mongoose.connect(mongoURL);
 
 const connection = mongoose.connection;
@@ -40,14 +37,6 @@ connection.once('open', ()=>{
 app.use(bodyParser.json());
 app.use(cors());
 app.use('/', Router);
-
-if(env == 'production'){
-    console.log(env);
-    app.use(express.static(path.join(__dirname, 'views/build')));
-}
-
-// app.use(express.static(path.join(__dirname, 'views/build')));
-
 
 app.listen(PORT, ()=>console.log("app running on port " + PORT));
 
